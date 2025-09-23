@@ -9,6 +9,56 @@ export default function Index() {
     window.dispatchEvent(new CustomEvent("open-chat"));
   }
 
+  const services = [
+    {
+      title: t({ en: "Video Production", fr: "Production vidéo" }),
+      body: t({
+        en: "On-site shoots, vertical edits, captions, and thumbnails — ready in 48–72 hours.",
+        fr: "Tournages sur site, montages verticaux, sous-titres et miniatures — prêts en 48–72 heures.",
+      }),
+      icon: (
+        <svg className="h-10 w-10 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <rect x="3" y="6" width="13" height="12" rx="2" />
+          <path d="M16 10l5-3v10l-5-3z" />
+          <circle cx="9.5" cy="12" r="2.5" />
+        </svg>
+      ),
+    },
+    {
+      title: t({ en: "Growth Strategy", fr: "Stratégie de croissance" }),
+      body: t({
+        en: "Hashtag strategy, posting cadence, trending hooks, and account optimization.",
+        fr: "Stratégie de hashtags, cadence de publication, accroches tendance et optimisation du compte.",
+      }),
+      icon: (
+        <svg className="h-10 w-10 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M3 3v18h18" />
+          <path d="M7 15l4-4 3 3 5-6" />
+          <circle cx="7" cy="15" r=".5" />
+          <circle cx="11" cy="11" r=".5" />
+          <circle cx="14" cy="14" r=".5" />
+          <circle cx="19" cy="8" r=".5" />
+        </svg>
+      ),
+    },
+    {
+      title: t({ en: "Analytics & Boosting", fr: "Analytique et promotion" }),
+      body: t({
+        en: "Weekly insights, content tests, and optional ad promotion to scale your best videos.",
+        fr: "Analyses hebdomadaires, tests de contenu et promotion publicitaire optionnelle pour amplifier vos meilleures vidéos.",
+      }),
+      icon: (
+        <svg className="h-10 w-10 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <rect x="3" y="3" width="18" height="14" rx="2" />
+          <path d="M7 13V9" />
+          <path d="M12 13V7" />
+          <path d="M17 13V11" />
+          <path d="M3 19h18" />
+        </svg>
+      ),
+    },
+  ];
+
   return (
     <div className="flex min-h-screen flex-col">
       {/* Hero */}
@@ -36,23 +86,25 @@ export default function Index() {
                 {t({ en: "3 Weeks Free Trial", fr: "Essai gratuit de 3 semaines" })}
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <a href="#portfolio">{t({ en: "See our work", fr: "Voir notre travail" })}</a>
+                <a href="#portfolio">{t({ en: "See some of our work", fr: "Voir quelques exemples de notre travail" })}</a>
               </Button>
             </div>
           </div>
           <div className="relative">
-            <div className="mx-auto h-72 w-full max-w-md rounded-2xl bg-gradient-to-br from-primary/15 via-primary/10 to-transparent p-2 ring-1 ring-border sm:h-96 md:ml-auto">
-              <div className="grid h-full place-items-center rounded-xl bg-background shadow-[0_20px_60px_-20px_hsl(var(--primary)/0.35)]">
-                <div className="grid place-items-center rounded-lg border p-6 text-center">
-                  <span className="text-sm font-semibold text-primary">
-                    {t({ en: "Lightning-fast delivery (48–72h)", fr: "Livraison ultra-rapide (48–72h)" })}
-                  </span>
-                  <span className="mt-1 text-xs text-muted-foreground">
-                    {t({
-                      en: "Professional on-site production • Cinematic vertical edits • Brand-ready captions",
-                      fr: "Production professionnelle sur site • Montages verticaux cinématographiques • Sous-titres prêts pour la marque",
-                    })}
-                  </span>
+            <div className="mx-auto w-full max-w-md md:ml-auto">
+              <div className="relative rounded-3xl bg-gradient-to-br from-primary/50 via-primary/25 to-primary/10 p-[2px] shadow-[0_20px_60px_-20px_hsl(var(--primary)/0.5)] ring-1 ring-primary/20">
+                <div className="grid h-72 place-items-center rounded-3xl bg-background/80 backdrop-blur-xl sm:h-96">
+                  <div className="grid place-items-center rounded-xl border p-6 text-center shadow-sm">
+                    <span className="text-sm font-semibold text-primary">
+                      {t({ en: "Lightning-fast delivery (48–72h)", fr: "Livraison ultra-rapide (48–72h)" })}
+                    </span>
+                    <span className="mt-1 text-xs text-muted-foreground">
+                      {t({
+                        en: "Professional on-site production • Cinematic vertical edits • Brand-ready captions",
+                        fr: "Production professionnelle sur site • Montages verticaux cinématographiques • Sous-titres prêts pour la marque",
+                      })}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -102,22 +154,9 @@ export default function Index() {
       {/* Services */}
       <section id="services" className="container py-16 sm:py-24">
         <div className="grid gap-6 sm:grid-cols-3">
-          {[
-            {
-              title: t({ en: "Video Production", fr: "Production vidéo" }),
-              body: t({ en: "On-site shoots, vertical edits, captions, and thumbnails — ready in 48–72 hours.", fr: "Tournages sur site, montages verticaux, sous-titres et miniatures — prêts en 48–72 heures." }),
-            },
-            {
-              title: t({ en: "Growth Strategy", fr: "Stratégie de croissance" }),
-              body: t({ en: "Hashtag strategy, posting cadence, trending hooks, and account optimization.", fr: "Stratégie de hashtags, cadence de publication, accroches tendance et optimisation du compte." }),
-            },
-            {
-              title: t({ en: "Analytics & Boosting", fr: "Analytique et promotion" }),
-              body: t({ en: "Weekly insights, content tests, and optional ad promotion to scale your best videos.", fr: "Analyses hebdomadaires, tests de contenu et promotion publicitaire optionnelle pour amplifier vos meilleures vidéos." }),
-            },
-          ].map((card) => (
-            <div key={card.title} className="rounded-2xl border bg-background p-6 shadow-sm">
-              <div className="mb-2 h-10 w-10 rounded-md bg-primary/10" />
+          {services.map((card) => (
+            <div key={String(card.title)} className="rounded-2xl border bg-background p-6 shadow-sm">
+              <div className="mb-2">{card.icon}</div>
               <h3 className="text-lg font-semibold">{card.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{card.body}</p>
             </div>
@@ -237,7 +276,7 @@ export default function Index() {
             {t({ en: "Let’s get started — it’s free.", fr: "Commençons — c'est gratuit." })}
           </h2>
           <div className="mt-4 grid gap-2 text-muted-foreground">
-            <p>{t({ en: "💬 Chat live with us right here on the site (chat bubble bottom right).", fr: "💬 Discutez en direct avec nous ici sur le site (bulle de chat en bas à droite)." })}</p>
+            <p>{t({ en: "Send us a message", fr: "Envoyez-nous un message" })}</p>
             <p>
               {t({ en: "📞 Prefer a quick call? Reach us at", fr: "📞 Vous préférez un appel rapide ? Joignez-nous au" })}
               <a href="tel:4388807214" className="ml-1 font-semibold text-foreground underline-offset-4 hover:underline">

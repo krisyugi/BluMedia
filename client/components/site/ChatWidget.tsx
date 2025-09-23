@@ -69,14 +69,23 @@ export function ChatWidget() {
       {open && (
         <div className="mb-3 w-[92vw] max-w-sm rounded-xl border bg-background p-4 shadow-2xl">
           <div className="mb-3 flex items-center justify-between">
-            <div className="font-semibold">{t({ en: "Live chat", fr: "Chat en direct" })}</div>
-            <button className="text-sm text-muted-foreground" onClick={() => setOpen(false)}>
-              {t({ en: "Close", fr: "Fermer" })}
+            <div className="font-semibold">
+              {t({
+                en: "Send us a message (like an email, not a live chat)",
+                fr: "Envoyez-nous un message (comme un e-mail, pas un chat en direct)",
+              })}
+            </div>
+            <button
+              className="inline-flex h-7 w-7 items-center justify-center rounded-md text-muted-foreground hover:bg-accent"
+              onClick={() => setOpen(false)}
+              aria-label={t({ en: "Close", fr: "Fermer" })}
+              title={t({ en: "Close", fr: "Fermer" })}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              </svg>
             </button>
           </div>
-          <p className="mb-3 text-sm text-muted-foreground">
-            {t({ en: "Chat with us here. We usually reply within minutes.", fr: "Discutez avec nous ici. Nous répondons généralement en quelques minutes." })}
-          </p>
           <form onSubmit={handleSend} className="grid gap-2">
             <input
               value={name}

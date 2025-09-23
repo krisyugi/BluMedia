@@ -237,12 +237,9 @@ export default function Index() {
       {/* Testimonials */}
       <section id="testimonials" className="container py-16 sm:py-24">
         <div className="grid gap-6 sm:grid-cols-2">
-          {[t({ en: "They filled our weekday tables in two weeks.", fr: "Ils ont rempli nos tables en semaine en deux semaines." }), t({ en: "Clients booked immediately after watching the videos.", fr: "Les clients ont réservé immédiatement après avoir regardé les vidéos." })].map((txt) => (
+          {[t({ en: "Clients quickly see the impact of our videos on their visibility.", fr: "Les clients constatent rapidement l'impact de nos vidéos sur leur visibilité." }), t({ en: "NewBlueMedia’s videos attract attention and increase local engagement.", fr: "Les vidéos de NewBlueMedia attirent l'attention et augmentent l'engagement local." })].map((txt) => (
             <figure key={txt} className="rounded-2xl border bg-background p-6">
               <blockquote className="text-lg font-semibold">“{txt}”</blockquote>
-              <figcaption className="mt-2 text-sm text-muted-foreground">
-                {t({ en: "— Restaurant Client / Beauty Studio Owner", fr: "— Client restaurateur / Propriétaire de salon de beauté" })}
-              </figcaption>
             </figure>
           ))}
         </div>

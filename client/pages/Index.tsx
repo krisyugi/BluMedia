@@ -1,6 +1,14 @@
 import { Button } from "@/components/ui/button";
+import { useI18n } from "@/lib/i18n";
 
 export default function Index() {
+  const { t } = useI18n();
+
+  function openChat(e?: React.MouseEvent) {
+    e?.preventDefault();
+    window.dispatchEvent(new CustomEvent("open-chat"));
+  }
+
   return (
     <div className="flex min-h-screen flex-col">
       {/* Hero */}
@@ -9,20 +17,26 @@ export default function Index() {
         <div className="container grid gap-8 py-20 md:grid-cols-2 md:gap-16 md:py-28">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border bg-background/70 px-3 py-1 text-xs text-muted-foreground backdrop-blur-sm">
-              Short-form video marketing
+              {t({ en: "Short-form video marketing", fr: "Marketing vidéo court format" })}
             </div>
             <h1 className="mt-4 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
-              NewBlueMedia — short form content that turns views into customers.
+              {t({
+                en: "NewBlueMedia — short form content that turns views into customers.",
+                fr: "NewBlueMedia — du contenu court qui transforme les vues en clients.",
+              })}
             </h1>
             <p className="mt-5 max-w-xl text-lg text-muted-foreground">
-              We make short videos for local small businesses that fill tables and book appointments — fast, affordable, and authentic.
+              {t({
+                en: "We make short videos for local small businesses that fill tables and book appointments — fast, affordable, and authentic.",
+                fr: "Nous créons des vidéos courtes pour les petites entreprises locales qui remplissent les salles et génèrent des rendez-vous — rapide, abordable et authentique.",
+              })}
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-3">
-              <Button size="lg" className="shadow-sm" asChild>
-                <a href="#contact">Start your 3 free weeks</a>
+              <Button size="lg" className="shadow-sm" onClick={openChat}>
+                {t({ en: "3 Weeks Free Trial", fr: "Essai gratuit de 3 semaines" })}
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <a href="#portfolio">See our work</a>
+                <a href="#portfolio">{t({ en: "See our work", fr: "Voir notre travail" })}</a>
               </Button>
             </div>
           </div>
@@ -30,8 +44,15 @@ export default function Index() {
             <div className="mx-auto h-72 w-full max-w-md rounded-2xl bg-gradient-to-br from-primary/15 via-primary/10 to-transparent p-2 ring-1 ring-border sm:h-96 md:ml-auto">
               <div className="grid h-full place-items-center rounded-xl bg-background shadow-[0_20px_60px_-20px_hsl(var(--primary)/0.35)]">
                 <div className="grid place-items-center rounded-lg border p-6 text-center">
-                  <span className="text-sm font-semibold text-primary">48–72 hour turnaround</span>
-                  <span className="mt-1 text-xs text-muted-foreground">On-site shoots • Vertical edits • Captions</span>
+                  <span className="text-sm font-semibold text-primary">
+                    {t({ en: "Lightning-fast delivery (48–72h)", fr: "Livraison ultra-rapide (48–72h)" })}
+                  </span>
+                  <span className="mt-1 text-xs text-muted-foreground">
+                    {t({
+                      en: "Professional on-site production • Cinematic vertical edits • Brand-ready captions",
+                      fr: "Production professionnelle sur site • Montages verticaux cinématographiques • Sous-titres prêts pour la marque",
+                    })}
+                  </span>
                 </div>
               </div>
             </div>
@@ -42,16 +63,16 @@ export default function Index() {
           <div className="container grid gap-6 py-6 sm:grid-cols-3">
             {[
               {
-                title: "Short turnaround",
-                desc: "Content ready in 48–72 hours.",
+                title: t({ en: "Short turnaround", fr: "Délai court" }),
+                desc: t({ en: "Content ready in 48–72 hours.", fr: "Contenu prêt en 48–72 heures." }),
               },
               {
-                title: "Performance focus",
-                desc: "Our videos drive real bookings & sales.",
+                title: t({ en: "Performance focus", fr: "Axé sur la performance" }),
+                desc: t({ en: "Our videos drive real bookings & sales.", fr: "Nos vidéos génèrent de vraies réservations et ventes." }),
               },
               {
-                title: "Risk-free",
-                desc: "Try 3 weeks free, pay only if you’re satisfied.",
+                title: t({ en: "Risk-free", fr: "Sans risque" }),
+                desc: t({ en: "Try 3 weeks free, pay only if you’re satisfied.", fr: "Essayez 3 semaines gratuitement, payez seulement si vous êtes satisfait." }),
               },
             ].map((item) => (
               <div key={item.title} className="rounded-xl border bg-background/60 p-4">
@@ -67,10 +88,13 @@ export default function Index() {
       <section id="about" className="container py-16 sm:py-24">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
-            Why local businesses choose NewBlueMedia
+            {t({ en: "Why local businesses choose NewBlueMedia", fr: "Pourquoi les entreprises locales choisissent NewBlueMedia" })}
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            We create scroll-stopping short form videos for restaurants, gyms, beauty studios, and more. Our team handles ideation, on-site shooting, editing, captions, and a posting plan tailored to your budget. You get results first — we don’t ask for payment until after your 3-week free promo.
+            {t({
+              en: "We create scroll-stopping short form videos for restaurants, gyms, beauty studios, and more. Our team handles ideation, on-site shooting, editing, captions, and a posting plan tailored to your budget. You get results first — we don’t ask for payment until after your 3-week free promo.",
+              fr: "Nous créons des vidéos courtes et accrocheuses pour les restaurants, salles de sport, instituts de beauté et plus encore. Notre équipe gère l'idéation, le tournage sur site, le montage, les sous-titres et un plan de publication adapté à votre budget. Vous obtenez d'abord des résultats — nous ne demandons aucun paiement avant la promo gratuite de 3 semaines.",
+            })}
           </p>
         </div>
       </section>
@@ -80,25 +104,19 @@ export default function Index() {
         <div className="grid gap-6 sm:grid-cols-3">
           {[
             {
-              title: "Video Production",
-              body:
-                "On-site shoots, vertical edits, captions, and thumbnails — ready in 48–72 hours.",
+              title: t({ en: "Video Production", fr: "Production vidéo" }),
+              body: t({ en: "On-site shoots, vertical edits, captions, and thumbnails — ready in 48–72 hours.", fr: "Tournages sur site, montages verticaux, sous-titres et miniatures — prêts en 48–72 heures." }),
             },
             {
-              title: "Growth Strategy",
-              body:
-                "Hashtag strategy, posting cadence, trending hooks, and account optimization.",
+              title: t({ en: "Growth Strategy", fr: "Stratégie de croissance" }),
+              body: t({ en: "Hashtag strategy, posting cadence, trending hooks, and account optimization.", fr: "Stratégie de hashtags, cadence de publication, accroches tendance et optimisation du compte." }),
             },
             {
-              title: "Analytics & Boosting",
-              body:
-                "Weekly insights, content tests, and optional ad promotion to scale your best videos.",
+              title: t({ en: "Analytics & Boosting", fr: "Analytique et promotion" }),
+              body: t({ en: "Weekly insights, content tests, and optional ad promotion to scale your best videos.", fr: "Analyses hebdomadaires, tests de contenu et promotion publicitaire optionnelle pour amplifier vos meilleures vidéos." }),
             },
           ].map((card) => (
-            <div
-              key={card.title}
-              className="rounded-2xl border bg-background p-6 shadow-sm"
-            >
+            <div key={card.title} className="rounded-2xl border bg-background p-6 shadow-sm">
               <div className="mb-2 h-10 w-10 rounded-md bg-primary/10" />
               <h3 className="text-lg font-semibold">{card.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{card.body}</p>
@@ -110,24 +128,13 @@ export default function Index() {
       {/* How It Works */}
       <section id="how" className="container py-16 sm:py-24">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
-            How It Works
-          </h2>
+          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">{t({ en: "How It Works", fr: "Comment ça marche" })}</h2>
         </div>
         <div className="mt-10 grid gap-4 sm:grid-cols-3">
           {[
-            {
-              step: "Step 1: Plan",
-              desc: "we audit your brand & map 6 video ideas.",
-            },
-            {
-              step: "Step 2: Create",
-              desc: "we film and edit vertical videos; you approve before posting.",
-            },
-            {
-              step: "Step 3: Launch",
-              desc: "we publish, monitor, and adjust to maximize engagement.",
-            },
+            { step: t({ en: "Step 1: Plan", fr: "Étape 1 : Planifier" }), desc: t({ en: "we audit your brand & map 6 video ideas.", fr: "nous auditons votre marque et cartographions 6 idées de vidéos." }) },
+            { step: t({ en: "Step 2: Create", fr: "Étape 2 : Créer" }), desc: t({ en: "we film and edit vertical videos; you approve before posting.", fr: "nous filmons et montons des vidéos verticales ; vous approuvez avant la publication." }) },
+            { step: t({ en: "Step 3: Launch", fr: "Étape 3 : Lancer" }), desc: t({ en: "we publish, monitor, and adjust to maximize engagement.", fr: "nous publions, surveillons et ajustons pour maximiser l'engagement." }) },
           ].map((s, i) => (
             <div key={s.step} className="rounded-xl border bg-background p-6">
               <div className="text-xs font-semibold text-primary">0{i + 1}</div>
@@ -141,33 +148,18 @@ export default function Index() {
       {/* Portfolio */}
       <section id="portfolio" className="container py-16 sm:py-24">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
-            Portfolio
-          </h2>
+          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">{t({ en: "Portfolio", fr: "Portfolio" })}</h2>
         </div>
         <div className="mt-8 grid gap-6 sm:grid-cols-3">
           {[
-            {
-              title: "L’appro MTL",
-              handle: "@lappro_mtl",
-              desc: "Food prep videos that boosted daily orders.",
-            },
-            {
-              title: "Minceur Idéal",
-              handle: "@minceur.ideal",
-              desc: "Behind-the-scenes clips that drove client sign-ups.",
-            },
-            {
-              title: "Chef Makk",
-              handle: "@chefmakk",
-              desc: "Recipe-style shorts that hit thousands of local views.",
-            },
+            { title: t({ en: "L’appro MTL", fr: "L’appro MTL" }), desc: t({ en: "Food prep videos that boosted daily orders.", fr: "Vidéos de préparation culinaire qui ont augmenté les commandes quotidiennes." }) },
+            { title: t({ en: "Minceur Idéal", fr: "Minceur Idéal" }), desc: t({ en: "Behind-the-scenes clips that drove client sign-ups.", fr: "Coulisses qui ont conduit à des inscriptions de clients." }) },
+            { title: t({ en: "Chef Makk", fr: "Chef Makk" }), desc: t({ en: "Recipe-style shorts that hit thousands of local views.", fr: "Courts formats de recettes qui ont atteint des milliers de vues locales." }) },
           ].map((p) => (
-            <div key={p.title} className="overflow-hidden rounded-2xl border">
+            <div key={p.title as string} className="overflow-hidden rounded-2xl border">
               <div className="h-40 w-full bg-gradient-to-br from-primary/20 to-primary/5" />
               <div className="p-5">
                 <div className="font-semibold">{p.title}</div>
-                <div className="text-sm text-muted-foreground">{p.handle}</div>
                 <div className="mt-2 text-sm text-muted-foreground">{p.desc}</div>
               </div>
             </div>
@@ -178,14 +170,11 @@ export default function Index() {
       {/* Testimonials */}
       <section id="testimonials" className="container py-16 sm:py-24">
         <div className="grid gap-6 sm:grid-cols-2">
-          {[
-            "They filled our weekday tables in two weeks.",
-            "Clients booked immediately after watching the videos.",
-          ].map((t) => (
-            <figure key={t} className="rounded-2xl border bg-background p-6">
-              <blockquote className="text-lg font-semibold">“{t}”</blockquote>
+          {[t({ en: "They filled our weekday tables in two weeks.", fr: "Ils ont rempli nos tables en semaine en deux semaines." }), t({ en: "Clients booked immediately after watching the videos.", fr: "Les clients ont réservé immédiatement après avoir regardé les vidéos." })].map((txt) => (
+            <figure key={txt} className="rounded-2xl border bg-background p-6">
+              <blockquote className="text-lg font-semibold">“{txt}”</blockquote>
               <figcaption className="mt-2 text-sm text-muted-foreground">
-                — Restaurant Client / Beauty Studio Owner
+                {t({ en: "— Restaurant Client / Beauty Studio Owner", fr: "— Client restaurateur / Propriétaire de salon de beauté" })}
               </figcaption>
             </figure>
           ))}
@@ -199,14 +188,14 @@ export default function Index() {
             <div className="grid items-center gap-6 sm:grid-cols-[1fr_auto]">
               <div>
                 <h3 className="text-2xl font-extrabold tracking-tight">
-                  Try us out for free — no upfront payment.
+                  {t({ en: "Try us out for free — no upfront payment.", fr: "Essayez-nous gratuitement — aucun paiement initial." })}
                 </h3>
                 <p className="mt-2 text-muted-foreground">
-                  Get 3 weeks of short form content for free. See the results first, then decide if you want to continue.
+                  {t({ en: "Get 3 weeks of short form content for free. See the results first, then decide if you want to continue.", fr: "Obtenez 3 semaines de contenu court gratuitement. Voyez d'abord les résultats, puis décidez si vous souhaitez continuer." })}
                 </p>
               </div>
-              <Button size="lg" className="justify-self-start sm:justify-self-end" asChild>
-                <a href="#contact">Claim your 3 free weeks</a>
+              <Button size="lg" className="justify-self-start sm:justify-self-end" onClick={openChat}>
+                {t({ en: "Claim your 3 Weeks Free Trial", fr: "Profitez de l'essai gratuit de 3 semaines" })}
               </Button>
             </div>
           </div>
@@ -217,12 +206,12 @@ export default function Index() {
       <section id="contact" className="container py-16 sm:py-24">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
-            Let’s get started — it’s free.
+            {t({ en: "Let’s get started — it’s free.", fr: "Commençons — c'est gratuit." })}
           </h2>
           <div className="mt-4 grid gap-2 text-muted-foreground">
-            <p>💬 Chat live with us right here on the site (chat bubble bottom right).</p>
+            <p>{t({ en: "💬 Chat live with us right here on the site (chat bubble bottom right).", fr: "💬 Discutez en direct avec nous ici sur le site (bulle de chat en bas à droite)." })}</p>
             <p>
-              📞 Prefer a quick call? Reach us at
+              {t({ en: "📞 Prefer a quick call? Reach us at", fr: "📞 Vous préférez un appel rapide ? Joignez-nous au" })}
               <a href="tel:4388807214" className="ml-1 font-semibold text-foreground underline-offset-4 hover:underline">
                 438-880-7214
               </a>

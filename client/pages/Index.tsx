@@ -152,17 +152,45 @@ export default function Index() {
         </div>
         <div className="mt-8 grid gap-6 sm:grid-cols-3">
           {[
-            { title: t({ en: "L’appro MTL", fr: "L’appro MTL" }), desc: t({ en: "Food prep videos that boosted daily orders.", fr: "Vidéos de préparation culinaire qui ont augmenté les commandes quotidiennes." }) },
-            { title: t({ en: "Minceur Idéal", fr: "Minceur Idéal" }), desc: t({ en: "Behind-the-scenes clips that drove client sign-ups.", fr: "Coulisses qui ont conduit à des inscriptions de clients." }) },
-            { title: t({ en: "Chef Makk", fr: "Chef Makk" }), desc: t({ en: "Recipe-style shorts that hit thousands of local views.", fr: "Courts formats de recettes qui ont atteint des milliers de vues locales." }) },
+            {
+              title: t({ en: "L’appro MTL", fr: "L’appro MTL" }),
+              type: t({ en: "Restaurant", fr: "Restaurant" }),
+              link: "https://www.tiktok.com/@lappro_mtl",
+              img: "https://unavatar.io/tiktok/lappro_mtl",
+            },
+            {
+              title: t({ en: "Minceur Idéal", fr: "Minceur Idéal" }),
+              type: t({ en: "Beauty studio", fr: "Institut de beauté" }),
+              link: "https://www.tiktok.com/@minceur.ideal",
+              img: "https://unavatar.io/tiktok/minceur.ideal",
+            },
+            {
+              title: t({ en: "Chef Makk", fr: "Chef Makk" }),
+              type: t({ en: "Chef / Creator", fr: "Chef / Créateur" }),
+              link: "https://www.tiktok.com/@chefmakk",
+              img: "https://unavatar.io/tiktok/chefmakk",
+            },
           ].map((p) => (
-            <div key={p.title as string} className="overflow-hidden rounded-2xl border">
-              <div className="h-40 w-full bg-gradient-to-br from-primary/20 to-primary/5" />
+            <a
+              key={String(p.title)}
+              href={p.link}
+              target="_blank"
+              rel="noreferrer"
+              className="group overflow-hidden rounded-2xl border transition hover:shadow-md"
+            >
+              <div className="relative">
+                <img
+                  src={p.img}
+                  alt={String(p.title)}
+                  className="aspect-square w-full object-cover"
+                  loading="lazy"
+                />
+              </div>
               <div className="p-5">
                 <div className="font-semibold">{p.title}</div>
-                <div className="mt-2 text-sm text-muted-foreground">{p.desc}</div>
+                <div className="text-sm text-muted-foreground">{p.type}</div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </section>

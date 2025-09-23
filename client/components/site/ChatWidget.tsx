@@ -88,7 +88,7 @@ export function ChatWidget() {
               ref={taRef}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              placeholder={t({ en: "Type your message...", fr: "Écrivez votre message..." })}
+              placeholder={t({ en: "Tell us about your business", fr: "Parlez-nous de votre entreprise" })}
               rows={4}
               className="rounded-md border bg-background p-3 text-sm outline-none focus:ring-2 focus:ring-ring"
             />

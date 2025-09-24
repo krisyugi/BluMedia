@@ -64,9 +64,6 @@ export function HeroAnimated() {
             <Button size="lg" className="shadow-sm" onClick={openChat}>
               {t({ en: "3 Weeks Free Trial", fr: "Essai gratuit de 3 semaines" })}
             </Button>
-            <Button size="lg" variant="outline" asChild>
-              <a href="#portfolio">{t({ en: "See some of our work", fr: "Voir quelques exemples de notre travail" })}</a>
-            </Button>
           </div>
         </div>
         <div className="md:col-span-4">

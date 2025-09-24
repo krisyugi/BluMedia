@@ -34,8 +34,12 @@ export function HeroAnimated() {
             <div className="overflow-hidden">
               <motion.h1 variants={line} className="leading-[1.05] text-[clamp(2rem,7vw,4.5rem)] font-extrabold tracking-tight">
                 <span className="align-middle">{t({ en: "Short-form ", fr: "" })}</span>
-                <a href="/portfolio" className="align-middle text-foreground no-underline">
-                  {t({ en: "content", fr: "Contenu" })}
+                <a href="/portfolio" className="pixel-word align-middle">
+                  <span className="label">{t({ en: "content", fr: "Contenu" })}</span>
+                  <span aria-hidden className="pxl tl" />
+                  <span aria-hidden className="pxl tr" />
+                  <span aria-hidden className="pxl bl" />
+                  <span aria-hidden className="pxl br" />
                 </a>
                 <span className="align-middle">{t({ en: "", fr: " court" })}</span>
               </motion.h1>

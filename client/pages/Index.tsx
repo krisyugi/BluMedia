@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useI18n } from "@/lib/i18n";
+import { HeroAnimated } from "@/components/site/HeroAnimated";
 
 export default function Index() {
   const { t } = useI18n();
@@ -61,80 +62,33 @@ export default function Index() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(60%_60%_at_10%_10%,hsl(var(--primary)/0.12),transparent_60%),radial-gradient(60%_60%_at_90%_20%,hsl(var(--primary)/0.12),transparent_60%)]" />
-        <div className="container grid gap-8 py-20 md:grid-cols-2 md:gap-16 md:py-28">
-          <div>
-            <div className="inline-flex items-center gap-2 rounded-full border bg-background/70 px-3 py-1 text-xs text-muted-foreground backdrop-blur-sm">
-              {t({ en: "Short-form video marketing", fr: "Marketing vidéo court format" })}
+      {/* Animated Hero (on load, mobile too) */}
+      <HeroAnimated />
+
+      {/* Proof strip */}
+      <div className="border-t bg-gradient-to-b from-transparent to-background/60">
+        <div className="container grid gap-6 py-6 sm:grid-cols-3">
+          {[
+            {
+              title: t({ en: "Short turnaround", fr: "Délai court" }),
+              desc: t({ en: "Content ready in 48–72 hours.", fr: "Contenu prêt en 48–72 heures." }),
+            },
+            {
+              title: t({ en: "Performance focus", fr: "Axé sur la performance" }),
+              desc: t({ en: "Our videos drive real bookings & sales.", fr: "Nos vidéos génèrent de vraies réservations et ventes." }),
+            },
+            {
+              title: t({ en: "Risk-free", fr: "Sans risque" }),
+              desc: t({ en: "Try 3 weeks free, pay only if you’re satisfied.", fr: "Essayez 3 semaines gratuitement, payez seulement si vous êtes satisfait." }),
+            },
+          ].map((item) => (
+            <div key={item.title} className="rounded-xl border bg-background/60 p-4">
+              <div className="text-sm font-semibold">{item.title} —</div>
+              <div className="text-sm text-muted-foreground">{item.desc}</div>
             </div>
-            <h1 className="mt-4 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
-              {t({
-                en: "NewBlueMedia — short form content that turns views into customers.",
-                fr: "NewBlueMedia — du contenu court qui transforme les vues en clients.",
-              })}
-            </h1>
-            <p className="mt-5 max-w-xl text-lg text-muted-foreground">
-              {t({
-                en: "We make short videos for local small businesses that fill tables and book appointments — fast, affordable, and authentic.",
-                fr: "Nous créons des vidéos courtes pour les petites entreprises locales qui remplissent les salles et génèrent des rendez-vous — rapide, abordable et authentique.",
-              })}
-            </p>
-            <div className="mt-7 flex flex-wrap items-center gap-3">
-              <Button size="lg" className="shadow-sm" onClick={openChat}>
-                {t({ en: "3 Weeks Free Trial", fr: "Essai gratuit de 3 semaines" })}
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <a href="#portfolio">{t({ en: "See some of our work", fr: "Voir quelques exemples de notre travail" })}</a>
-              </Button>
-            </div>
-          </div>
-          <div className="relative">
-            <div className="mx-auto w-full max-w-md md:ml-auto">
-              <div className="relative rounded-3xl bg-gradient-to-br from-primary/50 via-primary/25 to-primary/10 p-[2px] shadow-[0_20px_60px_-20px_hsl(var(--primary)/0.5)] ring-1 ring-primary/20">
-                <div className="grid h-72 place-items-center rounded-3xl bg-background/80 backdrop-blur-xl sm:h-96">
-                  <div className="grid place-items-center rounded-xl border p-6 text-center shadow-sm">
-                    <span className="text-sm font-semibold text-primary">
-                      {t({ en: "Lightning-fast delivery (48–72h)", fr: "Livraison ultra-rapide (48–72h)" })}
-                    </span>
-                    <span className="mt-1 text-xs text-muted-foreground">
-                      {t({
-                        en: "Professional on-site production • Cinematic vertical edits • Brand-ready captions",
-                        fr: "Production professionnelle sur site • Montages verticaux cinématographiques • Sous-titres prêts pour la marque",
-                      })}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
-        {/* Proof strip */}
-        <div className="border-t bg-gradient-to-b from-transparent to-background/60">
-          <div className="container grid gap-6 py-6 sm:grid-cols-3">
-            {[
-              {
-                title: t({ en: "Short turnaround", fr: "Délai court" }),
-                desc: t({ en: "Content ready in 48–72 hours.", fr: "Contenu prêt en 48–72 heures." }),
-              },
-              {
-                title: t({ en: "Performance focus", fr: "Axé sur la performance" }),
-                desc: t({ en: "Our videos drive real bookings & sales.", fr: "Nos vidéos génèrent de vraies réservations et ventes." }),
-              },
-              {
-                title: t({ en: "Risk-free", fr: "Sans risque" }),
-                desc: t({ en: "Try 3 weeks free, pay only if you’re satisfied.", fr: "Essayez 3 semaines gratuitement, payez seulement si vous êtes satisfait." }),
-              },
-            ].map((item) => (
-              <div key={item.title} className="rounded-xl border bg-background/60 p-4">
-                <div className="text-sm font-semibold">{item.title} —</div>
-                <div className="text-sm text-muted-foreground">{item.desc}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      </div>
 
       {/* About */}
       <section id="about" className="container py-16 sm:py-24">

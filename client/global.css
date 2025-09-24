@@ -106,3 +106,39 @@
       Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
   }
 }
+
+@layer components {
+  .pixel-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0.875rem; /* approx px-3.5 py-2 */
+    border-radius: 0.5rem; /* rounded-lg */
+    color: hsl(var(--primary-foreground));
+    text-decoration: none;
+    overflow: hidden;
+    background:
+      linear-gradient(0deg, rgba(255,255,255,0.06), rgba(255,255,255,0.06)),
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.18) 0 6px, rgba(255,255,255,0.04) 6px 12px),
+      hsl(var(--primary));
+    transition: all 300ms ease-in-out;
+  }
+  .pixel-btn::before,
+  .pixel-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 0%;
+    background:
+      linear-gradient(0deg, rgba(255,255,255,0.08), rgba(255,255,255,0.08)),
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.3) 0 6px, rgba(255,255,255,0.06) 6px 12px),
+      hsl(var(--primary));
+    transition: width 300ms ease-in-out;
+  }
+  .pixel-btn::before { left: 0; }
+  .pixel-btn::after { right: 0; }
+  .pixel-btn:hover::before,
+  .pixel-btn:hover::after { width: 50%; }
+}

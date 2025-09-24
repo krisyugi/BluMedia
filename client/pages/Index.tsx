@@ -139,7 +139,7 @@ export default function Index() {
       </section>
 
       {/* Portfolio */}
-      <section id="portfolio" className="container py-16 sm:py-24">
+      <section id="projects" className="container py-16 sm:py-24">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">{t({ en: "Portfolio", fr: "Portfolio" })}</h2>
         </div>

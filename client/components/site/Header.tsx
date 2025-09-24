@@ -11,14 +11,6 @@ export function Header() {
           <div className="h-7 w-7 rounded-md bg-gradient-to-br from-primary to-primary/70" />
           <span className="text-lg font-extrabold tracking-tight">NewBlueMedia</span>
         </Link>
-        <nav className="flex items-center gap-3">
-          <a
-            href="#projects"
-            className="bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 transition-colors duration-300"
-          >
-            {t({ en: "Content", fr: "Contenu" })}
-          </a>
-        </nav>
         <button
           onClick={() => setLang(lang === "en" ? "fr" : "en")}
           className="inline-flex items-center gap-2 rounded-md border px-3 py-2 text-sm hover:bg-accent"

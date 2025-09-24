@@ -34,10 +34,7 @@ export function HeroAnimated() {
             <div className="overflow-hidden">
               <motion.h1 variants={line} className="leading-[1.05] text-[clamp(2rem,7vw,4.5rem)] font-extrabold tracking-tight">
                 <span className="align-middle">{t({ en: "Short-form ", fr: "" })}</span>
-                <a
-                  href="#projects"
-                  className="align-middle bg-blue-600 text-white rounded-lg px-3 py-1 hover:bg-blue-700 transition-colors duration-300"
-                >
+                <a href="/portfolio" className="align-middle text-foreground no-underline">
                   {t({ en: "content", fr: "Contenu" })}
                 </a>
                 <span className="align-middle">{t({ en: "", fr: " court" })}</span>

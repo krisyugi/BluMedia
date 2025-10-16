@@ -34,13 +34,7 @@ export function HeroAnimated() {
             <div className="overflow-hidden">
               <motion.h1 variants={line} className="leading-[1.05] text-[clamp(2rem,7vw,4.5rem)] font-extrabold tracking-tight">
                 <span className="align-middle">{t({ en: "Short-form ", fr: "" })}</span>
-                <a href="/portfolio" className="pixel-word align-middle">
-                  <span className="label">{t({ en: "content", fr: "Contenu" })}</span>
-                  <span aria-hidden className="pxl tl" />
-                  <span aria-hidden className="pxl tr" />
-                  <span aria-hidden className="pxl bl" />
-                  <span aria-hidden className="pxl br" />
-                </a>
+                <span className="align-middle">{t({ en: "content", fr: "Contenu" })}</span>
                 <span className="align-middle">{t({ en: "", fr: " court" })}</span>
               </motion.h1>
             </div>
@@ -76,7 +70,13 @@ export function HeroAnimated() {
               {t({ en: "3 Weeks Free Trial", fr: "Essai gratuit de 3 semaines" })}
             </Button>
           </div>
+        <div className="md:col-span-2">
+          <div className="sticky top-24 hidden md:flex flex-col gap-3">
+            <Button size="sm" variant="outline">{t({ en: "Our Content", fr: "Notre contenu" })}</Button>
+            <a href="/portfolio" className="pixel-btn w-full text-center text-sm">{t({ en: "Content", fr: "Contenu" })}</a>
+          </div>
         </div>
+      </div>
       </div>
     </section>
   );

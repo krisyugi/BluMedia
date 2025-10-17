@@ -69,13 +69,10 @@ export function HeroAnimated() {
             <Button size="lg" className="shadow-sm" onClick={openChat}>
               {t({ en: "3 Weeks Free Trial", fr: "Essai gratuit de 3 semaines" })}
             </Button>
+            <Button size="lg" variant="outline" asChild>
+              <a href="/portfolio">{t({ en: "Our Content", fr: "Notre contenu" })}</a>
+            </Button>
           </div>
-        <div className="md:col-span-2">
-          <div className="sticky top-24 hidden md:flex flex-col gap-3">
-            <Button size="sm" variant="outline">{t({ en: "Our Content", fr: "Notre contenu" })}</Button>
-            <a href="/portfolio" className="pixel-btn w-full text-center text-sm">{t({ en: "Content", fr: "Contenu" })}</a>
-          </div>
-        </div>
       </div>
       </div>
     </section>

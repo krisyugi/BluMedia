@@ -65,28 +65,35 @@ export default function Index() {
       {/* Animated Hero (on load, mobile too) */}
       <HeroAnimated />
 
-      {/* Proof strip */}
+      {/* Why Choose Us */}
       <div className="border-t bg-gradient-to-b from-transparent to-background/60">
-        <div className="container grid gap-6 py-6 sm:grid-cols-3">
-          {[
-            {
-              title: t({ en: "Short turnaround", fr: "Délai court" }),
-              desc: t({ en: "Content ready in 48–72 hours.", fr: "Contenu prêt en 48–72 heures." }),
-            },
-            {
-              title: t({ en: "Performance focus", fr: "Axé sur la performance" }),
-              desc: t({ en: "Our videos drive real bookings & sales.", fr: "Nos vidéos génèrent de vraies réservations et ventes." }),
-            },
-            {
-              title: t({ en: "Risk-free", fr: "Sans risque" }),
-              desc: t({ en: "Try 3 weeks free, pay only if you’re satisfied.", fr: "Essayez 3 semaines gratuitement, payez seulement si vous êtes satisfait." }),
-            },
-          ].map((item) => (
-            <div key={item.title} className="rounded-xl border bg-background/60 p-4">
-              <div className="text-sm font-semibold">{item.title} —</div>
-              <div className="text-sm text-muted-foreground">{item.desc}</div>
-            </div>
-          ))}
+        <div className="container py-10">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="text-2xl font-extrabold tracking-tight">{t({ en: "Why Choose Us", fr: "Pourquoi nous choisir" })}</h2>
+          </div>
+          <div className="mt-6 grid gap-6 sm:grid-cols-3">
+            {[
+              {
+                title: t({ en: "Short turnaround", fr: "Délai court" }),
+                desc: t({ en: "Content ready in 48–72 hours.", fr: "Contenu prêt en 48–72 heures." }),
+              },
+              {
+                title: t({ en: "Performance focus", fr: "Axé sur la performance" }),
+                desc: t({ en: "Our videos drive real bookings & sales.", fr: "Nos vidéos génèrent de vraies réservations et ventes." }),
+              },
+              {
+                title: t({ en: "Risk-free", fr: "Sans risque" }),
+                desc: t({ en: "Try 3 weeks free, pay only if you're satisfied.", fr: "Essayez 3 semaines gratuitement, payez seulement si vous êtes satisfait." }),
+              },
+            ].map((item) => (
+              <div key={String(item.title)} className="rounded-2xl border bg-background p-6 shadow-sm">
+                <div className="text-sm">
+                  <span className="font-semibold">{item.title}:</span>{" "}
+                  <span className="text-muted-foreground">{item.desc}</span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -125,7 +132,7 @@ export default function Index() {
         </div>
         <div className="mt-10 grid gap-4 sm:grid-cols-3">
           {[
-            { step: t({ en: "Step 1: Plan", fr: "Étape 1 : Planifier" }), desc: t({ en: "we audit your brand & map 6 video ideas.", fr: "nous auditons votre marque et cartographions 6 idées de vidéos." }) },
+            { step: t({ en: "Step 1: Plan", fr: "Étape 1 : Planifier" }), desc: t({ en: "we audit your brand & map video ideas.", fr: "nous auditons votre marque et cartographions des idées de vidéos." }) },
             { step: t({ en: "Step 2: Create", fr: "Étape 2 : Créer" }), desc: t({ en: "we film and edit vertical videos; you approve before posting.", fr: "nous filmons et montons des vidéos verticales ; vous approuvez avant la publication." }) },
             { step: t({ en: "Step 3: Launch", fr: "Étape 3 : Lancer" }), desc: t({ en: "we publish, monitor, and adjust to maximize engagement.", fr: "nous publions, surveillons et ajustons pour maximiser l'engagement." }) },
           ].map((s, i) => (

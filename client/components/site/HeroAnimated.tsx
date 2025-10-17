@@ -23,7 +23,7 @@ export function HeroAnimated() {
 
   return (
     <section className="relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(60%_60%_at_10%_10%,hsl(var(--primary)/0.12),transparent_60%),radial-gradient(60%_60%_at_90%_20%,hsl(var(--primary)/0.12),transparent_60%)]" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(60%_60%_at_12%_8%,rgba(232,240,255,0.65),transparent_60%),radial-gradient(60%_60%_at_88%_12%,rgba(232,240,255,0.55),transparent_60%),radial-gradient(50%_40%_at_50%_0%,rgba(232,240,255,0.4),transparent_65%)]" />
       <div className="container grid gap-8 py-20 md:grid-cols-12 md:gap-10 md:py-28">
         <div className="md:col-span-10">
           <div className="inline-flex items-center gap-2 rounded-full border bg-background/70 px-3 py-1 text-xs text-muted-foreground backdrop-blur-sm">

@@ -10,6 +10,14 @@ interface InViewFadeUpProps {
 
 export function InViewFadeUp({ className, children, delay = 0, amount = 0.6 }: InViewFadeUpProps) {
   const controls = useAnimation();
+  const mounted = React.useRef(false);
+  React.useEffect(() => {
+    mounted.current = true;
+    return () => {
+      mounted.current = false;
+    };
+  }, []);
+
   const ease = [0.22, 1, 0.36, 1] as const;
 
   return (
@@ -19,7 +27,9 @@ export function InViewFadeUp({ className, children, delay = 0, amount = 0.6 }: I
       animate={controls}
       whileInView={{ y: 0, opacity: 1, transition: { duration: 0.6, ease, delay } }}
       viewport={{ once: false, amount }}
-      onViewportLeave={() => controls.start({ y: 24, opacity: 0 })}
+      onViewportLeave={() => {
+        if (mounted.current) controls.start({ y: 24, opacity: 0 });
+      }}
     >
       {children}
     </motion.div>

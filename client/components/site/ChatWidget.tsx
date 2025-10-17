@@ -71,8 +71,8 @@ export function ChatWidget() {
           <div className="mb-3 flex items-center justify-between">
             <div className="font-semibold">
               {t({
-                en: "Send us a message (like an email, not a live chat)",
-                fr: "Envoyez-nous un message (comme un e-mail, pas un chat en direct)",
+                en: "Send us a message",
+                fr: "Envoyez-nous un message",
               })}
             </div>
             <button

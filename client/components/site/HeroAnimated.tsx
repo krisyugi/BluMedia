@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useI18n } from "@/lib/i18n";
+import { InViewFadeUp } from "@/components/site/InViewFadeUp";
 
 export function HeroAnimated() {
   const { t, } = useI18n();
@@ -52,27 +53,33 @@ export function HeroAnimated() {
             </div>
           </motion.div>
 
-          <p className="mt-5 max-w-xl text-lg text-muted-foreground">
-            {t({
-              en: "We make short videos for local small businesses — fast, affordable, and authentic.",
-              fr: "Nous créons des vidéos courtes pour les petites entreprises locales — rapides, abordables et authentiques.",
-            })}
-          </p>
+          <InViewFadeUp>
+            <p className="mt-5 max-w-xl text-lg text-muted-foreground">
+              {t({
+                en: "We make short videos for local small businesses — fast, affordable, and authentic.",
+                fr: "Nous créons des vidéos courtes pour les petites entreprises locales — rapides, abordables et authentiques.",
+              })}
+            </p>
+          </InViewFadeUp>
 
           {/* Cleaner integrated info text (previously in right box) */}
-          <div className="mt-5 text-sm text-muted-foreground">
-            <span className="font-semibold text-foreground">{t({ en: "Lightning-fast delivery (48–72h)", fr: "Livraison ultra-rapide (48–72h)" })}</span>
-            <span> • {t({ en: "Professional on-site production • Cinematic vertical edits • Brand-ready captions", fr: "Production professionnelle sur site • Montages verticaux cinématographiques • Sous-titres prêts pour la marque" })}</span>
-          </div>
+          <InViewFadeUp>
+            <div className="mt-5 text-sm text-muted-foreground">
+              <span className="font-semibold text-foreground">{t({ en: "Lightning-fast delivery (48–72h)", fr: "Livraison ultra-rapide (48–72h)" })}</span>
+              <span> • {t({ en: "Professional on-site production • Cinematic vertical edits • Brand-ready captions", fr: "Production professionnelle sur site • Montages verticaux cinématographiques • Sous-titres prêts pour la marque" })}</span>
+            </div>
+          </InViewFadeUp>
 
-          <div className="mt-7 flex flex-wrap items-center gap-3">
-            <Button size="lg" className="shadow-sm" onClick={openChat}>
-              {t({ en: "3 Weeks Free Trial", fr: "Essai gratuit de 3 semaines" })}
-            </Button>
-            <Button size="lg" variant="outline" asChild>
-              <a href="/portfolio">{t({ en: "Our Content", fr: "Notre contenu" })}</a>
-            </Button>
-          </div>
+          <InViewFadeUp>
+            <div className="mt-7 flex flex-wrap items-center gap-3">
+              <Button size="lg" className="shadow-sm" onClick={openChat}>
+                {t({ en: "3 Weeks Free Trial", fr: "Essai gratuit de 3 semaines" })}
+              </Button>
+              <Button size="lg" variant="outline" asChild>
+                <a href="/portfolio">{t({ en: "Our Content", fr: "Notre contenu" })}</a>
+              </Button>
+            </div>
+          </InViewFadeUp>
       </div>
       </div>
     </section>

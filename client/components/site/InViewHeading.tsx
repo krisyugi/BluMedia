@@ -20,6 +20,13 @@ export function InViewHeading({
 }: InViewHeadingProps) {
   const MotionTag: any = (motion as any)[tag] || motion.h2;
   const controls = useAnimation();
+  const mounted = React.useRef(false);
+  React.useEffect(() => {
+    mounted.current = true;
+    return () => {
+      mounted.current = false;
+    };
+  }, []);
 
   const variants = {
     hidden: { y: 24, opacity: 0 },
@@ -34,7 +41,9 @@ export function InViewHeading({
       variants={variants}
       whileInView="show"
       viewport={{ once, amount: 0.6 }}
-      onViewportLeave={() => controls.start("hidden")}
+      onViewportLeave={() => {
+        if (mounted.current) controls.start("hidden");
+      }}
     >
       {children}
     </MotionTag>

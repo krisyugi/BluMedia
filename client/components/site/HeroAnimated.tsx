@@ -62,7 +62,7 @@ export function HeroAnimated() {
           {/* Cleaner integrated info text (previously in right box) */}
           <div className="mt-5 text-sm text-muted-foreground">
             <span className="font-semibold text-foreground">{t({ en: "Lightning-fast delivery (48–72h)", fr: "Livraison ultra-rapide (48–72h)" })}</span>
-            <span> — {t({ en: "Professional on-site production • Cinematic vertical edits • Brand-ready captions", fr: "Production professionnelle sur site • Montages verticaux cinématographiques • Sous-titres prêts pour la marque" })}</span>
+            <span> • {t({ en: "Professional on-site production • Cinematic vertical edits • Brand-ready captions", fr: "Production professionnelle sur site • Montages verticaux cinématographiques • Sous-titres prêts pour la marque" })}</span>
           </div>
 
           <div className="mt-7 flex flex-wrap items-center gap-3">

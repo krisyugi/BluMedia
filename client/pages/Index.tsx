@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { useI18n } from "@/lib/i18n";
 import { HeroAnimated } from "@/components/site/HeroAnimated";
 import { InViewHeading } from "@/components/site/InViewHeading";
+import { InViewFadeUp } from "@/components/site/InViewFadeUp";
 
 export default function Index() {
   const { t } = useI18n();
@@ -86,13 +87,15 @@ export default function Index() {
                 title: t({ en: "Risk-free", fr: "Sans risque" }),
                 desc: t({ en: "Try 3 weeks free, pay only if you're satisfied.", fr: "Essayez 3 semaines gratuitement, payez seulement si vous êtes satisfait." }),
               },
-            ].map((item) => (
-              <div key={String(item.title)} className="rounded-2xl border bg-background p-6 shadow-sm">
-                <div className="text-sm">
-                  <span className="font-semibold">{item.title}:</span>{" "}
-                  <span className="text-muted-foreground">{item.desc}</span>
+            ].map((item, i) => (
+              <InViewFadeUp key={String(item.title)} delay={i * 0.05}>
+                <div className="rounded-2xl border bg-background p-6 shadow-sm">
+                  <div className="text-sm">
+                    <span className="font-semibold">{item.title}:</span>{" "}
+                    <span className="text-muted-foreground">{item.desc}</span>
+                  </div>
                 </div>
-              </div>
+              </InViewFadeUp>
             ))}
           </div>
         </div>
@@ -104,24 +107,28 @@ export default function Index() {
           <InViewHeading tag="h2" className="text-3xl font-extrabold tracking-tight sm:text-4xl">
             {t({ en: "Why local businesses choose NewBlueMedia", fr: "Pourquoi les entreprises locales choisissent NewBlueMedia" })}
           </InViewHeading>
-          <p className="mt-4 text-lg text-muted-foreground">
-            {t({
-              en: "We create scroll-stopping short form videos for restaurants, gyms, beauty studios, and more. Our team handles ideation, on-site shooting, editing, captions, and a posting plan tailored to your budget. You get results first — we don’t ask for payment until after your 3-week free promo.",
-              fr: "Nous créons des vidéos courtes et accrocheuses pour les restaurants, salles de sport, instituts de beauté et plus encore. Notre équipe gère l'idéation, le tournage sur site, le montage, les sous-titres et un plan de publication adapté à votre budget. Vous obtenez d'abord des résultats — nous ne demandons aucun paiement avant la promo gratuite de 3 semaines.",
-            })}
-          </p>
+          <InViewFadeUp>
+            <p className="mt-4 text-lg text-muted-foreground">
+              {t({
+                en: "We create scroll-stopping short form videos for restaurants, gyms, beauty studios, and more. Our team handles ideation, on-site shooting, editing, captions, and a posting plan tailored to your budget. You get results first — we don’t ask for payment until after your 3-week free promo.",
+                fr: "Nous créons des vidéos courtes et accrocheuses pour les restaurants, salles de sport, instituts de beauté et plus encore. Notre équipe gère l'idéation, le tournage sur site, le montage, les sous-titres et un plan de publication adapté à votre budget. Vous obtenez d'abord des résultats — nous ne demandons aucun paiement avant la promo gratuite de 3 semaines.",
+              })}
+            </p>
+          </InViewFadeUp>
         </div>
       </section>
 
       {/* Services */}
       <section id="services" className="container py-16 sm:py-24">
         <div className="grid gap-6 sm:grid-cols-3">
-          {services.map((card) => (
-            <div key={String(card.title)} className="rounded-2xl border bg-background p-6 shadow-sm">
-              <div className="mb-2">{card.icon}</div>
-              <h3 className="text-lg font-semibold">{card.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{card.body}</p>
-            </div>
+          {services.map((card, i) => (
+            <InViewFadeUp key={String(card.title)} delay={i * 0.06}>
+              <div className="rounded-2xl border bg-background p-6 shadow-sm">
+                <div className="mb-2">{card.icon}</div>
+                <h3 className="text-lg font-semibold">{card.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{card.body}</p>
+              </div>
+            </InViewFadeUp>
           ))}
         </div>
       </section>
@@ -137,11 +144,13 @@ export default function Index() {
             { step: t({ en: "Step 2: Create", fr: "Étape 2 : Créer" }), desc: t({ en: "we film and edit vertical videos; you approve before posting.", fr: "nous filmons et montons des vidéos verticales ; vous approuvez avant la publication." }) },
             { step: t({ en: "Step 3: Launch", fr: "Étape 3 : Lancer" }), desc: t({ en: "we publish, monitor, and adjust to maximize engagement.", fr: "nous publions, surveillons et ajustons pour maximiser l'engagement." }) },
           ].map((s, i) => (
-            <div key={s.step} className="rounded-xl border bg-background p-6">
-              <div className="text-xs font-semibold text-primary">0{i + 1}</div>
-              <div className="mt-2 font-semibold">{s.step}</div>
-              <div className="text-sm text-muted-foreground">{s.desc}</div>
-            </div>
+            <InViewFadeUp key={s.step} delay={i * 0.06}>
+              <div className="rounded-xl border bg-background p-6">
+                <div className="text-xs font-semibold text-primary">0{i + 1}</div>
+                <div className="mt-2 font-semibold">{s.step}</div>
+                <div className="text-sm text-muted-foreground">{s.desc}</div>
+              </div>
+            </InViewFadeUp>
           ))}
         </div>
       </section>
@@ -171,27 +180,28 @@ export default function Index() {
               link: "https://www.tiktok.com/@chefmakk",
               img: "https://unavatar.io/tiktok/chefmakk",
             },
-          ].map((p) => (
-            <a
-              key={String(p.title)}
-              href={p.link}
-              target="_blank"
-              rel="noreferrer"
-              className="group overflow-hidden rounded-2xl border transition hover:shadow-md"
-            >
-              <div className="relative">
-                <img
-                  src={p.img}
-                  alt={String(p.title)}
-                  className="aspect-square w-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-              <div className="p-5">
-                <div className="font-semibold">{p.title}</div>
-                <div className="text-sm text-muted-foreground">{p.type}</div>
-              </div>
-            </a>
+          ].map((p, i) => (
+            <InViewFadeUp key={String(p.title)} delay={i * 0.06}>
+              <a
+                href={p.link}
+                target="_blank"
+                rel="noreferrer"
+                className="group overflow-hidden rounded-2xl border transition hover:shadow-md"
+              >
+                <div className="relative">
+                  <img
+                    src={p.img}
+                    alt={String(p.title)}
+                    className="aspect-square w-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-5">
+                  <div className="font-semibold">{p.title}</div>
+                  <div className="text-sm text-muted-foreground">{p.type}</div>
+                </div>
+              </a>
+            </InViewFadeUp>
           ))}
         </div>
       </section>
@@ -199,10 +209,12 @@ export default function Index() {
       {/* Testimonials */}
       <section id="testimonials" className="container py-16 sm:py-24">
         <div className="grid gap-6 sm:grid-cols-2">
-          {[t({ en: "Clients quickly see the impact of our videos on their visibility.", fr: "Les clients constatent rapidement l'impact de nos vidéos sur leur visibilité." }), t({ en: "NewBlueMedia’s videos attract attention and increase local engagement.", fr: "Les vidéos de NewBlueMedia attirent l'attention et augmentent l'engagement local." })].map((txt) => (
-            <figure key={txt} className="rounded-2xl border bg-background p-6">
-              <blockquote className="text-lg font-semibold">“{txt}”</blockquote>
-            </figure>
+          {[t({ en: "Clients quickly see the impact of our videos on their visibility.", fr: "Les clients constatent rapidement l'impact de nos vidéos sur leur visibilité." }), t({ en: "NewBlueMedia’s videos attract attention and increase local engagement.", fr: "Les vidéos de NewBlueMedia attirent l'attention et augmentent l'engagement local." })].map((txt, i) => (
+            <InViewFadeUp key={txt} delay={i * 0.06}>
+              <figure className="rounded-2xl border bg-background p-6">
+                <blockquote className="text-lg font-semibold">“{txt}”</blockquote>
+              </figure>
+            </InViewFadeUp>
           ))}
         </div>
       </section>
@@ -210,21 +222,23 @@ export default function Index() {
       {/* Offer Banner */}
       <section className="py-10">
         <div className="container">
-          <div className="overflow-hidden rounded-2xl border bg-gradient-to-r from-primary/10 via-primary/5 to-transparent p-8 sm:p-10">
-            <div className="grid items-center gap-6 sm:grid-cols-[1fr_auto]">
-              <div>
-                <InViewHeading tag="h3" className="text-2xl font-extrabold tracking-tight">
-                  {t({ en: "Try us out for free — no upfront payment.", fr: "Essayez-nous gratuitement — aucun paiement initial." })}
-                </InViewHeading>
-                <p className="mt-2 text-muted-foreground">
-                  {t({ en: "Get 3 weeks of short form content for free. See the results first, then decide if you want to continue.", fr: "Obtenez 3 semaines de contenu court gratuitement. Voyez d'abord les résultats, puis décidez si vous souhaitez continuer." })}
-                </p>
+          <InViewFadeUp>
+            <div className="overflow-hidden rounded-2xl border bg-gradient-to-r from-primary/10 via-primary/5 to-transparent p-8 sm:p-10">
+              <div className="grid items-center gap-6 sm:grid-cols-[1fr_auto]">
+                <div>
+                  <InViewHeading tag="h3" className="text-2xl font-extrabold tracking-tight">
+                    {t({ en: "Try us out for free — no upfront payment.", fr: "Essayez-nous gratuitement — aucun paiement initial." })}
+                  </InViewHeading>
+                  <p className="mt-2 text-muted-foreground">
+                    {t({ en: "Get 3 weeks of short form content for free. See the results first, then decide if you want to continue.", fr: "Obtenez 3 semaines de contenu court gratuitement. Voyez d'abord les résultats, puis décidez si vous souhaitez continuer." })}
+                  </p>
+                </div>
+                <Button size="lg" className="justify-self-start sm:justify-self-end" onClick={openChat}>
+                  {t({ en: "Claim your 3 Weeks Free Trial", fr: "Profitez de l'essai gratuit de 3 semaines" })}
+                </Button>
               </div>
-              <Button size="lg" className="justify-self-start sm:justify-self-end" onClick={openChat}>
-                {t({ en: "Claim your 3 Weeks Free Trial", fr: "Profitez de l'essai gratuit de 3 semaines" })}
-              </Button>
             </div>
-          </div>
+          </InViewFadeUp>
         </div>
       </section>
 
@@ -234,16 +248,18 @@ export default function Index() {
           <InViewHeading tag="h2" className="text-3xl font-extrabold tracking-tight sm:text-4xl">
             {t({ en: "Let’s get started — it’s free.", fr: "Commençons — c'est gratuit." })}
           </InViewHeading>
-          <div className="mt-4 grid gap-2 text-muted-foreground">
-            <p>{t({ en: "Send us a message", fr: "Envoyez-nous un message" })}</p>
-            <p>
-              {t({ en: "📞 Prefer a quick call? Reach us at", fr: "📞 Vous préférez un appel rapide ? Joignez-nous au" })}
-              <a href="tel:4388807214" className="ml-1 font-semibold text-foreground underline-offset-4 hover:underline">
-                438-880-7214
-              </a>
-              .
-            </p>
-          </div>
+          <InViewFadeUp>
+            <div className="mt-4 grid gap-2 text-muted-foreground">
+              <p>{t({ en: "Send us a message", fr: "Envoyez-nous un message" })}</p>
+              <p>
+                {t({ en: "📞 Prefer a quick call? Reach us at", fr: "📞 Vous préférez un appel rapide ? Joignez-nous au" })}
+                <a href="tel:4388807214" className="ml-1 font-semibold text-foreground underline-offset-4 hover:underline">
+                  438-880-7214
+                </a>
+                .
+              </p>
+            </div>
+          </InViewFadeUp>
         </div>
       </section>
     </div>

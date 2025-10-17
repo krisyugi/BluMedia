@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useI18n } from "@/lib/i18n";
 import { HeroAnimated } from "@/components/site/HeroAnimated";
+import { InViewHeading } from "@/components/site/InViewHeading";
 
 export default function Index() {
   const { t } = useI18n();
@@ -69,7 +70,7 @@ export default function Index() {
       <div className="border-t bg-gradient-to-b from-transparent to-background/60">
         <div className="container py-10">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-2xl font-extrabold tracking-tight">{t({ en: "Why Choose Us", fr: "Pourquoi nous choisir" })}</h2>
+            <InViewHeading tag="h2" className="text-2xl font-extrabold tracking-tight">{t({ en: "Why Choose Us", fr: "Pourquoi nous choisir" })}</InViewHeading>
           </div>
           <div className="mt-6 grid gap-6 sm:grid-cols-3">
             {[
@@ -100,9 +101,9 @@ export default function Index() {
       {/* About */}
       <section id="about" className="container py-16 sm:py-24">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
+          <InViewHeading tag="h2" className="text-3xl font-extrabold tracking-tight sm:text-4xl">
             {t({ en: "Why local businesses choose NewBlueMedia", fr: "Pourquoi les entreprises locales choisissent NewBlueMedia" })}
-          </h2>
+          </InViewHeading>
           <p className="mt-4 text-lg text-muted-foreground">
             {t({
               en: "We create scroll-stopping short form videos for restaurants, gyms, beauty studios, and more. Our team handles ideation, on-site shooting, editing, captions, and a posting plan tailored to your budget. You get results first — we don’t ask for payment until after your 3-week free promo.",
@@ -128,7 +129,7 @@ export default function Index() {
       {/* How It Works */}
       <section id="how" className="container py-16 sm:py-24">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">{t({ en: "How It Works", fr: "Comment ça marche" })}</h2>
+          <InViewHeading tag="h2" className="text-3xl font-extrabold tracking-tight sm:text-4xl">{t({ en: "How It Works", fr: "Comment ça marche" })}</InViewHeading>
         </div>
         <div className="mt-10 grid gap-4 sm:grid-cols-3">
           {[
@@ -148,7 +149,7 @@ export default function Index() {
       {/* Portfolio */}
       <section id="projects" className="container py-16 sm:py-24">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">{t({ en: "Portfolio", fr: "Portfolio" })}</h2>
+          <InViewHeading tag="h2" className="text-3xl font-extrabold tracking-tight sm:text-4xl">{t({ en: "Portfolio", fr: "Portfolio" })}</InViewHeading>
         </div>
         <div className="mt-8 grid gap-6 sm:grid-cols-3">
           {[
@@ -212,9 +213,9 @@ export default function Index() {
           <div className="overflow-hidden rounded-2xl border bg-gradient-to-r from-primary/10 via-primary/5 to-transparent p-8 sm:p-10">
             <div className="grid items-center gap-6 sm:grid-cols-[1fr_auto]">
               <div>
-                <h3 className="text-2xl font-extrabold tracking-tight">
+                <InViewHeading tag="h3" className="text-2xl font-extrabold tracking-tight">
                   {t({ en: "Try us out for free — no upfront payment.", fr: "Essayez-nous gratuitement — aucun paiement initial." })}
-                </h3>
+                </InViewHeading>
                 <p className="mt-2 text-muted-foreground">
                   {t({ en: "Get 3 weeks of short form content for free. See the results first, then decide if you want to continue.", fr: "Obtenez 3 semaines de contenu court gratuitement. Voyez d'abord les résultats, puis décidez si vous souhaitez continuer." })}
                 </p>
@@ -230,9 +231,9 @@ export default function Index() {
       {/* Contact & Chat */}
       <section id="contact" className="container py-16 sm:py-24">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
+          <InViewHeading tag="h2" className="text-3xl font-extrabold tracking-tight sm:text-4xl">
             {t({ en: "Let’s get started — it’s free.", fr: "Commençons — c'est gratuit." })}
-          </h2>
+          </InViewHeading>
           <div className="mt-4 grid gap-2 text-muted-foreground">
             <p>{t({ en: "Send us a message", fr: "Envoyez-nous un message" })}</p>
             <p>

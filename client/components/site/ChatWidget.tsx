@@ -6,6 +6,7 @@ import { useI18n } from "@/lib/i18n";
 interface ChatMessage {
   id: string;
   name: string;
+  email: string;
   text: string;
   ts: number;
 }
@@ -17,6 +18,7 @@ export function ChatWidget() {
   const { t } = useI18n();
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const taRef = useRef<HTMLTextAreaElement | null>(null);
   const bcRef = useRef<BroadcastChannel | null>(null);
@@ -54,6 +56,7 @@ export function ChatWidget() {
     const payload: ChatMessage = {
       id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
       name: name.trim(),
+      email: email.trim(),
       text: message.trim(),
       ts: Date.now(),
     };
@@ -61,6 +64,7 @@ export function ChatWidget() {
     toast.success(t({ en: "Message sent! We'll be in touch shortly.", fr: "Message envoyé ! Nous vous répondrons rapidement." }));
     setMessage("");
     setName("");
+    setEmail("");
     setOpen(false);
   }
 
@@ -91,6 +95,13 @@ export function ChatWidget() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder={t({ en: "Your name", fr: "Votre nom" })}
+              className="h-10 rounded-md border bg-background px-3 text-sm outline-none focus:ring-2 focus:ring-ring"
+            />
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder={t({ en: "Your email", fr: "Votre email" })}
               className="h-10 rounded-md border bg-background px-3 text-sm outline-none focus:ring-2 focus:ring-ring"
             />
             <textarea
